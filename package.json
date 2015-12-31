@@ -1,0 +1,33 @@
+{
+  "name": "depresol",
+  "version": "1.0.0",
+  "description": "An asynchronous dependency resolver",
+  "main": "index.js",
+  "dependencies": {
+    "dank-do-while": "^0.1.2"
+  },
+  "devDependencies": {
+    "tape": "^4.4.0"
+  },
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wankdanker/node-depresol.git"
+  },
+  "keywords": [
+    "dependency",
+    "resolve",
+    "resolver",
+    "deps",
+    "asnyc",
+    "asynchronous"
+  ],
+  "author": "Dan VerWeire",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wankdanker/node-depresol/issues"
+  },
+  "homepage": "https://github.com/wankdanker/node-depresol#readme"
+}
