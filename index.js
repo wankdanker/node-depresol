@@ -3,12 +3,16 @@ var doWhile = require('dank-do-while');
 module.exports = Depresol;
 
 function Depresol(fn) {
-	
-	return function DrepresolLookup (dep, cb) {
+	return function DrepresolLookup (dep, cache, cb) {
 		var resolved = [];
 		var results = [];
 		var deps = [dep];
 		var error = false;
+
+		if (typeof cache === 'function') {
+			cb = cache;
+			cache = {};
+		}
 
 		doWhile(function (more) {
 			var lookup = deps.shift();
@@ -17,7 +21,7 @@ function Depresol(fn) {
 				return more(false);
 			}
 
-			fn(lookup, function (err, res, resDeps) {
+			fn(lookup, cache, function (err, res, resDeps) {
 				if (err) {
 					error = error;
 					return more(false);
@@ -27,6 +31,9 @@ function Depresol(fn) {
 				results.push(res);
 				
 				if (resDeps && resDeps.length) {
+					if (!Array.isArray(resDeps)) {
+						resDeps = [resDeps];
+					}
 					//loop through each of the resDeps and 
 					//eliminate them if they have already been
 					//resolved or is pending to be resolved.

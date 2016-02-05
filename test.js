@@ -18,7 +18,7 @@ var data = {
 	, 'e' : { name : 'e' }
 }
 
-var d = depresol(function (lookup, cb) {
+var d = depresol(function (lookup, cache, cb) {
 	return cb(null, data[lookup], data[lookup].deps);
 });
 
