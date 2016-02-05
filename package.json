@@ -1,6 +1,6 @@
 {
   "name": "depresol",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "An asynchronous dependency resolver",
   "main": "index.js",
   "dependencies": {
